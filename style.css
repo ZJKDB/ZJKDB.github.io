@@ -1,100 +1,282 @@
 :root {
-  --ink: #1c1917;
-  --muted: #57534e;
-  --line: #e7e5e4;
-  --paper: #fafaf9;
-  --accent: #9a3412;
+  --ink: #17211c;
+  --muted: #5e675f;
+  --line: #e3dbd0;
+  --paper: #f7f4ef;
+  --panel: #13241c;
+  --cream: #f3efe6;
+  --brass: #a68456;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
   color: var(--ink);
   background: var(--paper);
-  line-height: 1.6;
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
-.top,
-main,
-footer {
-  width: min(720px, calc(100% - 2rem));
-  margin-left: auto;
-  margin-right: auto;
+.wrap {
+  width: min(980px, calc(100% - 2.5rem));
+  margin: 0 auto;
 }
 
-.top {
-  padding: 3.5rem 0 1.5rem;
-  border-bottom: 1px solid var(--line);
+.hero {
+  background:
+    radial-gradient(900px 280px at 100% 0%, rgba(166, 132, 86, 0.18), transparent 60%),
+    var(--panel);
+  color: var(--cream);
 }
 
-.eyebrow,
-.role,
-footer {
-  color: var(--muted);
+.hero-inner {
+  padding: 4.2rem 0 2.6rem;
 }
 
-.eyebrow {
-  margin: 0 0 0.4rem;
-  font-family: "Segoe UI", sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
+.kicker,
+.label,
+.when,
+.stack {
+  font-family: "Segoe UI", "PingFang SC", sans-serif;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.kicker {
+  margin: 0 0 1.2rem;
+  color: var(--brass);
+  font-size: 0.72rem;
 }
 
 h1 {
   margin: 0;
-  font-size: 2.6rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", Palatino, Georgia, serif;
+  font-size: clamp(3.2rem, 8vw, 5.4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+
+.en-name {
+  margin: 0.7rem 0 0;
+  font-family: Palatino, Georgia, serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
 }
 
 .role {
-  margin: 0.4rem 0 0;
+  margin: 0.8rem 0 0;
+  color: rgba(243, 239, 230, 0.78);
 }
 
-main {
-  padding: 0.5rem 0 2rem;
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-section {
-  padding: 1.25rem 0;
+.contact a {
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(166, 132, 86, 0.7);
+}
+
+.contact a:hover {
+  color: var(--brass);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 160px));
+  gap: 1rem;
+  margin: 2.4rem 0 0;
+}
+
+.stats div {
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(243, 239, 230, 0.18);
+}
+
+.stats dt {
+  color: var(--brass);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+.stats dd {
+  margin: 0.2rem 0 0;
+  font-family: Palatino, Georgia, serif;
+  font-size: 1.8rem;
+}
+
+.stats span {
+  margin-left: 0.15rem;
+  color: rgba(243, 239, 230, 0.55);
+  font-size: 0.95rem;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: rgba(247, 244, 239, 0.92);
   border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.nav .wrap {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.nav a {
+  padding: 0.85rem 0;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.nav a.is-on,
+.nav a:hover {
+  color: var(--ink);
+  box-shadow: inset 0 -2px 0 var(--brass);
+}
+
+main section {
+  padding: 3.2rem 0 0.4rem;
+}
+
+.label {
+  margin: 0;
+  color: var(--brass);
+  font-size: 0.72rem;
 }
 
 h2 {
-  margin: 0 0 0.4rem;
+  margin: 0.25rem 0 1.4rem;
+  font-family: "Songti SC", "STSong", Palatino, Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1.2rem 2rem;
+  padding: 1.3rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.when {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+h3 {
+  margin: 0;
   font-size: 1.15rem;
+  font-weight: 600;
 }
 
-a {
-  color: var(--accent);
+.where {
+  margin: 0.2rem 0 0.6rem;
+  color: var(--muted);
 }
 
-button {
-  font: inherit;
-  color: #fff;
-  background: var(--ink);
-  border: 0;
-  border-radius: 4px;
-  padding: 0.45rem 0.8rem;
-  cursor: pointer;
+ul {
+  margin: 0;
+  padding-left: 1.1rem;
 }
 
-button:hover {
-  background: var(--accent);
+li + li {
+  margin-top: 0.45rem;
 }
 
-.clock {
-  margin-top: 0.8rem;
-  font-family: "Segoe UI", sans-serif;
+.stack {
+  margin: -0.6rem 0 1.2rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.points {
+  list-style: none;
+  padding: 0;
+}
+
+.points li {
+  display: grid;
+  grid-template-columns: 4.2rem 1fr;
+  gap: 1rem;
+  padding: 0.95rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.points strong {
+  color: var(--brass);
+  font-weight: 600;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.skill-grid article {
+  padding: 1.15rem 1.2rem 1.25rem;
+  background: #fffdf9;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.skill-grid h3 {
+  margin-bottom: 0.35rem;
+  font-family: "Songti SC", "STSong", Palatino, Georgia, serif;
+}
+
+.skill-grid p {
+  margin: 0;
+  color: #3d463f;
 }
 
 footer {
-  padding: 1.2rem 0 2.5rem;
-  font-family: "Segoe UI", sans-serif;
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--line);
+}
+
+footer p {
+  margin: 0;
+  padding: 1.3rem 0 2rem;
+  color: var(--muted);
   font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  .hero-inner {
+    padding-top: 2.8rem;
+  }
+
+  .stats,
+  .entry,
+  .points li,
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav .wrap {
+    gap: 1rem;
+    overflow-x: auto;
+  }
 }
