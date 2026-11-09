@@ -1,54 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ZJKDB · CSI205TC</title>
-  <meta name="description" content="Personal page of ZJKDB, an XJTLU student on CSI205TC Networking and Distributed Computing.">
+  <title>朱旭祥 · Xuxiang Zhu</title>
+  <meta name="description" content="朱旭祥，西交利物浦大学数据科学与大数据专业。个人主页。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="top">
-    <p class="eyebrow">Xi'an Jiaotong-Liverpool University</p>
-    <h1>ZJKDB</h1>
-    <p class="role">CSI205TC Networking and Distributed Computing</p>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <p class="kicker">Xi'an Jiaotong-Liverpool University</p>
+      <h1>朱旭祥</h1>
+      <p class="en-name">Xuxiang Zhu</p>
+      <p class="role">数据科学与大数据 · 西交利物浦大学</p>
+      <ul class="contact">
+        <li><a href="mailto:Xuxiang.Zhu24@student.xjtlu.edu.cn">Xuxiang.Zhu24@student.xjtlu.edu.cn</a></li>
+        <li><a href="tel:18040807715">180 4080 7715</a></li>
+      </ul>
+      <dl class="stats">
+        <div>
+          <dt>GPA</dt>
+          <dd>3.9<span>/4.0</span></dd>
+        </div>
+        <div>
+          <dt>IELTS</dt>
+          <dd>8.0<span>（7）</span></dd>
+        </div>
+        <div>
+          <dt>GRE</dt>
+          <dd>326<span>+4.5</span></dd>
+        </div>
+      </dl>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>
-        This is my personal page, published with GitHub Pages. I am taking
-        CSI205TC in the Academy of Artificial Intelligence and Advanced Technology.
-        The page is the site used for the network-analysis part of the coursework:
-        domain name, IP address, latency, route, and the protocols used to open it.
-      </p>
+  <nav class="nav" aria-label="页内导航">
+    <div class="wrap">
+      <a href="#education">教育</a>
+      <a href="#internship">实习</a>
+      <a href="#project">项目</a>
+      <a href="#skills">技能</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="education">
+      <p class="label">Education</p>
+      <h2>教育与校园</h2>
+      <article class="entry">
+        <p class="when">2024.9 — 至今</p>
+        <div>
+          <h3>西交利物浦大学</h3>
+          <p class="where">数据科学与大数据</p>
+          <ul>
+            <li>大一、大二连续两年获校级一等奖学金，专业绩点排名前 5%。</li>
+            <li>计算机学生联合会副会长，组织并主讲多次算法社课。</li>
+            <li>大学生创新创业大赛决赛优秀奖。</li>
+          </ul>
+        </div>
+      </article>
     </section>
 
-    <section>
-      <h2>This module</h2>
-      <ul>
-        <li>Socket programming, including TCP and UDP video streaming</li>
-        <li>How a name such as <span id="host-name">this site</span> is resolved and reached</li>
-        <li>What DNS, TCP and HTTPS each do when a browser loads a page</li>
+    <section id="internship">
+      <p class="label">Internship</p>
+      <h2>实习</h2>
+      <article class="entry">
+        <p class="when">2026.5 — 2026.7</p>
+        <div>
+          <h3>Salesforce 研发工程师</h3>
+          <p class="where">上海南燕信息科技有限公司（南燕集团）</p>
+          <ul>
+            <li>负责保险科技核心系统的数据加工与财务对账，覆盖保单、佣金、继续率、结算和金蝶凭证入账。处理多机构口径不一致、财务金额与佣金明细不同步，以及组织架构变更影响历史归属的问题。</li>
+            <li>批量加工寿险佣金与继续率。同一保单在不同机构、首续年、个人或团队下口径不同，处理改比例重算、改金额不覆盖，以及应收与实收对不齐，避免结算和考核取数错误。</li>
+            <li>按营销组织树做业绩归属。人员有上下级、职级和晋升年度，汇总时区分母营与子营；组织变动后分开历史归属和当前架构，避免重复计入或漏计。</li>
+            <li>参与 OA、再保、常规保险管理、旅行险和 ERP 的运维与需求开发。协助把 Visualforce 页面重构为 LWC 和 Aura，页面响应明显加快。</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="project">
+      <p class="label">Project</p>
+      <h2>电商离线数据仓库</h2>
+      <p class="stack">Hadoop · MySQL · Hive · Flume · DataX · Kafka · Maxwell · Spark</p>
+      <ul class="points">
+        <li>
+          <strong>架构</strong>
+          <span>按电商场景设计 ODS、DWD、DIM、DWS、ADS 五层离线数仓。基于维度建模做了 10 余张维度表和事实表，覆盖用户、交易和流量。</span>
+        </li>
+        <li>
+          <strong>ETL</strong>
+          <span>用 Flume 和 Kafka 采集用户行为日志，日处理约 100 万条。用 DataX、Maxwell 把 MySQL 同步到 Hive ODS，编写 30 余个 HiveSQL 完成 DWD 清洗和字段标准化。</span>
+        </li>
+        <li>
+          <strong>指标</strong>
+          <span>DWS 按主题和粒度做轻度汇总，计算日活、新增和留存。ADS 产出 GMV 趋势、转化漏斗和用户路径。</span>
+        </li>
+        <li>
+          <strong>性能</strong>
+          <span>用 Spark UI 看 Stage、Task 和 Shuffle。订单表在活动日出现严重数据倾斜，给热点 key 加随机前缀并广播小表后，核心查询从分钟级降到秒级。</span>
+        </li>
       </ul>
     </section>
 
-    <section>
-      <h2>This visit</h2>
-      <p id="visit-line">Checking how this page was loaded…</p>
-      <button id="clock-btn" type="button">Show the time on this computer</button>
-      <p id="clock-line" class="clock" hidden></p>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p><a href="mailto:1978142992@qq.com">1978142992@qq.com</a></p>
+    <section id="skills">
+      <p class="label">Skills</p>
+      <h2>技能</h2>
+      <div class="skill-grid">
+        <article>
+          <h3>数据仓库</h3>
+          <p>ODS、DWD、DWS、ADS 分层和维度建模。HDFS 读写、YARN 调度、MapReduce。Hive 分区、分桶和窗口函数。Spark Core 与 Spark SQL。Kettle 等 ETL 工具。</p>
+        </article>
+        <article>
+          <h3>Java 与数据库</h3>
+          <p>集合、面向对象，Spring、Spring Boot、Spring MVC，以及 IoC、AOP 和 Bean 生命周期。JVM 内存模型、类加载、双亲委派和垃圾回收。线程、锁、CAS、AQS、ThreadLocal 和线程池。MySQL 索引、事务、MVCC 和日志。Redis 数据结构、缓存更新，以及击穿、穿透和雪崩。</p>
+        </article>
+        <article>
+          <h3>Salesforce</h3>
+          <p>平台配置与 Apex 开发。Visualforce、LWC、权限集和 Data Loader。</p>
+        </article>
+        <article>
+          <h3>算法</h3>
+          <p>链表、树、贪心和动态规划。</p>
+        </article>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>CSI205TC coursework · <span id="year"></span></p>
+    <div class="wrap">
+      <p>朱旭祥 · <span id="year"></span></p>
+    </div>
   </footer>
   <script src="main.js"></script>
 </body>
