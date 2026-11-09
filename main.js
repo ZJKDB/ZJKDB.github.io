@@ -1,22 +1,28 @@
 const year = document.getElementById("year");
-const hostName = document.getElementById("host-name");
-const visitLine = document.getElementById("visit-line");
-const clockBtn = document.getElementById("clock-btn");
-const clockLine = document.getElementById("clock-line");
-
 year.textContent = String(new Date().getFullYear());
-hostName.textContent = location.hostname || "this site";
 
-const protocol = location.protocol.replace(":", "").toUpperCase();
-visitLine.textContent =
-  "This page was opened as " +
-  protocol +
-  " on " +
-  (location.hostname || "a local file") +
-  ". The name is resolved with DNS, the connection is TCP, and GitHub Pages serves the files over HTTPS.";
+const links = Array.from(document.querySelectorAll(".nav a"));
+const sections = links
+  .map(function (link) {
+    return document.querySelector(link.getAttribute("href"));
+  })
+  .filter(Boolean);
 
-clockBtn.addEventListener("click", function () {
-  const now = new Date();
-  clockLine.hidden = false;
-  clockLine.textContent = "Local time: " + now.toLocaleString();
+const observer = new IntersectionObserver(
+  function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) {
+        return;
+      }
+      const id = "#" + entry.target.id;
+      links.forEach(function (link) {
+        link.classList.toggle("is-on", link.getAttribute("href") === id);
+      });
+    });
+  },
+  { rootMargin: "-45% 0px -48% 0px" }
+);
+
+sections.forEach(function (section) {
+  observer.observe(section);
 });
